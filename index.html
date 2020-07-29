@@ -1,0 +1,42 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    </head>
+    <body>
+	
+	<h1>My To-Do List (In Order): August 2020</h1>
+	
+		<div id="app">
+	
+		<ol>
+			<li v-for="item in items">{{ item }}</li>
+		</ol>
+		
+		<input id="input" type="text" v-model="newItem">
+		
+		<button v-on:click="addItem">Add To-Do Item</button>
+
+		</div>
+		
+		<script>
+		
+		var app = new Vue({
+			el:'#app',
+			data : {
+				items :['Sign up for classes', 'Move in to my apartment', 'Buy books and school supplies', 'Go to the grocery store']
+			},
+			
+		methods:{
+		
+			addItem() {
+				this.items.push(this.newItem);
+				this.newItem ='';
+				
+			}
+		}
+		})
+		
+		</script>
+    </body>
+</html>
